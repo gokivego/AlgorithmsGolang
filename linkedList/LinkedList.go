@@ -4,8 +4,7 @@ This implementation of linked list is not circular unlike
 the container/list package provided by default
 */
 
-package LinkedList
-//package main  // Uncomment this line and comment the above line to run as a main program
+package main  // Uncomment this line and comment the above line to run as a main program
 
 import ("fmt"
         //"reflect"
