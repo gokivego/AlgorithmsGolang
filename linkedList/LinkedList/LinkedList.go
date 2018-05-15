@@ -98,6 +98,22 @@ func (ll *LinkedList) PushFront(val interface{}) *Element {
     return e
 }
 
+func (ll *LinkedList) Remove(e *Element) * Element {
+    // if e is the first element of the linkedlist
+    temp := ll.root.next
+    if e == temp {
+        ll.root.next = e.next
+        ll.len--
+    } else {
+        for temp.next != e {
+            temp = temp.next
+        }
+        temp.next = e.next
+        ll.len--
+    }
+    return e
+}
+
 func (ll *LinkedList) Print() {
     temp := ll.Front()
     for temp.next != nil {
