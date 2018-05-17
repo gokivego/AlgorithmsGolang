@@ -101,18 +101,28 @@ func (ll *LinkedList) PushFront(val interface{}) *Element {
 func (ll *LinkedList) Remove(e *Element) * Element {
     // if e is the first element of the linkedlist
     temp := ll.root.next
-    if e == temp {
+    if e.ll != ll {
+        return e
+    } else if e == temp && e.ll == ll{
+        e.ll = nil
         ll.root.next = e.next
         ll.len--
     } else {
         for temp.next != e {
             temp = temp.next
         }
+        e.ll = nil
         temp.next = e.next
         ll.len--
     }
     return e
 }
+
+/*
+func (ll *LinkedList) InsertAfter(eToBeInserted *Element, e *Element) *Element {
+    fmt.Print("Method Not Yet Implemented")
+}
+*/
 
 func (ll *LinkedList) Print() {
     temp := ll.Front()
@@ -133,6 +143,7 @@ func (ll *LinkedList) ReversedRecursive(e *Element) *LinkedList {
     } else {
         q := temp.next
         q.next = temp
+        ll.last = ll.root.next
         ll.ModifyRoot(q)
         temp.next = nil
         return ll
@@ -156,9 +167,27 @@ func (ll *LinkedList) ReversedIterative() *LinkedList {
         curr = next
         next = next.next
     }
+    ll.last = ll.root.next
     ll.ModifyRoot(next)
     next.next = curr
     curr.next = prev
+    return ll
+}
+
+func ArrayToLinkedList(arr *[]interface{}) *LinkedList {
+    ll := New()
+    temp := &ll.root
+    for _,val := range *arr {
+        if temp.next == nil {
+            e := new(Element)
+            temp.next = e
+            e.ll = ll
+            e.Value = val
+            ll.last = e
+            ll.len++
+            temp = temp.next
+        }
+    }
     return ll
 }
 
