@@ -44,7 +44,6 @@ func FindKthPermutation(num []int,k int,) *[]int {
     return &KthPermutation
 }
 
-
 func main() {
     array := []int{1,2,3,4}
     KthPermutationPtr := FindKthPermutation(array,8)

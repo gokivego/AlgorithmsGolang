@@ -24,7 +24,7 @@ func KnapSackRecursion(ItemWeight,ItemValue []int,n,c int) int {
     }
 }
 
-// Memoized  version of the problem, which minimizes recusrsion
+// Memoized  version of the problem, which minimizes recursion
 func KnapSackMemoization(MemoizedMap map[string]int,ItemWeight,ItemValue []int,n,c int) int { 
     nc := fmt.Sprintf("%d:%d",n,c)
     if val,ok := MemoizedMap[nc];ok {
