@@ -62,10 +62,11 @@ func maxInSlidingWindow(arr *[]int,windowSize int) {
 }
 
 func main() {
-    arr := []int{-4,2,-5,1,-1,6}
-    
-    
-    maxInSlidingWindow(&arr,3)
+    //arr := []int{-4,2,-5,1,-1,6}
+    arr := []int{1,3,-1,-3,5,3,6,7}
+    k := 3
+
+    maxInSlidingWindow(&arr,k)
     
     //fmt.Println(dll)
     //fmt.Println(l.Front())
